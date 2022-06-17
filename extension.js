@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
 const axios = require("axios");
+require("dotenv").config({ path: __dirname + "/.env" });
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -19,6 +20,7 @@ function activate(context) {
   let disposable = vscode.commands.registerCommand(
     "markdown-link-generator.helloWorld",
     async function () {
+      console.log(process.env);
       // The code you place here will be executed every time your command is executed
       const editor = vscode.window.activeTextEditor;
       if (!editor) {
@@ -34,7 +36,7 @@ function activate(context) {
 
       // @ts-ignore
       const res = await axios(
-        `https://www.googleapis.com/customsearch/v1?key=AIzaSyC8UlkfK-PNpwOCyk8-W9-pQTouFfHq5cA&q=${query}&cx=56d2a616bcb3922eb`
+        `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&q=${query}&cx=56d2a616bcb3922eb`
       );
 
       const quickPick = vscode.window.createQuickPick();

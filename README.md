@@ -2,7 +2,7 @@
 
 Easily find and add links to your markdown document.
 
-![Quick Demo](/quickdemo.gif)
+![Quick Demo](quickdemo.gif)
 
 ## How to use
 
