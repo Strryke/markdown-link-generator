@@ -20,7 +20,6 @@ function activate(context) {
   let disposable = vscode.commands.registerCommand(
     "markdown-link-generator.helloWorld",
     async function () {
-      console.log(process.env);
       // The code you place here will be executed every time your command is executed
       const editor = vscode.window.activeTextEditor;
       if (!editor) {
